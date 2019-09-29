@@ -25,8 +25,14 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    browsers: ['ChromeNoSandbox'],
+    customLaunchers: {
+      ChromeNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
+    },
+    singleRun: true,
     restartOnFileChange: true
   });
 };
