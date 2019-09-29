@@ -1,2 +1,20 @@
-<h1>Things 2 Do</h1>
-<p>coming soon...</p>
+<div class="container" [ngClass]="(isAdding === true) ? 'modal-background': ''">
+  <ul class="list-container">
+    <li class="list-item-container" *ngFor="let item of todoList">
+      <input id='label-{{todoList.indexOf(item)}}' type='checkbox'/>
+      <label for='label-{{todoList.indexOf(item)}}'>
+        <p> {{item}}</p>
+      </label>
+    </li>
+  </ul>
+  <div class="add-item-container">
+    <button (click)="isAdding = isAdding ? false : true">
+      <i *ngIf="isAdding" class="icon ion-ios-close-circle-outline"></i>
+      <i *ngIf="!isAdding" class="icon ion-ios-add-circle-outline"></i>
+    </button>
+    <div class="add-item-form" *ngIf="isAdding">
+      <textarea autofocus rows="10" [formControl]="newItem"></textarea>
+      <button (click)="add(newItem.value)">Save</button>
+    </div>
+  </div>
+</div>
