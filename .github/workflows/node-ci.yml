@@ -16,7 +16,7 @@ jobs:
     - name: lint
       run: npm run lint
     - name: unit test
-        npm test
+      run: npm test
   scan:
     runs-on: ubuntu-latest
     steps:
