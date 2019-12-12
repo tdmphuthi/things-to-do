@@ -9,8 +9,8 @@
   </ul>
   <div class="add-item-container">
     <button (click)="isAdding = isAdding ? false : true">
-      <i *ngIf="isAdding" class="icon ion-ios-close-circle-outline"></i>
-      <i *ngIf="!isAdding" class="icon ion-ios-add-circle-outline"></i>
+      <em *ngIf="isAdding" class="icon ion-ios-close-circle-outline"></em>
+      <em *ngIf="!isAdding" class="icon ion-ios-add-circle-outline"></em>
     </button>
     <div class="add-item-form" *ngIf="isAdding">
       <textarea autofocus rows="10" [formControl]="newItem"></textarea>
