@@ -3,7 +3,7 @@ name: Node CI
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -11,16 +11,13 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 11
-    - name: install and build
-      run: |
-        npm install
-        npm run build --if-present
-    - name: lint and test
-      run: |
-        npm run lint
+    - name: install
+      run: npm install
+    - name: lint
+      run: npm run lint
+    - name: unit test
         npm test
-  sonarCloudTrigger:
-    name: SonarCloud Trigger
+  scan:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
